@@ -4,6 +4,8 @@ import "../styles/Home.css"
 import "../styles/Note.css"
 import Note from "../components/Note"
 
+import {Helmet} from "react-helmet-async"
+
 function Home() {
     const [notes, setNotes] = useState([])
     const [content, setContent] = useState("")
@@ -44,7 +46,12 @@ function Home() {
             .catch((err) => alert(err));
     }
 
-    return <div>
+    return <>
+        <Helmet>
+            <title>Home</title>
+            <meta name="description" content="This is the Homepage" />
+            <link rel="canonical" href="/" />
+        </Helmet>
         <div>
             <h2>Home</h2>
             {notes.map((note) => (
@@ -80,7 +87,7 @@ function Home() {
                 value="Submit" 
             />
         </form>
-    </div>
+    </>
 }
 
 export default Home
