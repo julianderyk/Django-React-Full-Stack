@@ -3,7 +3,6 @@ import api from "../api";
 import "../styles/Home.css"
 import "../styles/Note.css"
 import Note from "../components/Note"
-
 import {Helmet} from "react-helmet-async"
 
 function Home() {
