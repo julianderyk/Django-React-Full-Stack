@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Note
+from .models import Note, Listing
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -20,3 +20,14 @@ class NoteSerializer(serializers.ModelSerializer):
         model = Note
         fields = ["id", "title", "content", "created_at", "author"]
         extra_kwargs = {"author": {"read_only": True}}
+
+
+class ListingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Listing
+        fields = ["id", "title", "desc", "created_at", "author", "addr_street", "addr_number", "addr_postcode", "addr_city", "addr_region", "addr_country", "addr_lat", "addr_lng"]
+        # fields = ["id", "title", "desc", "created_at", "author", "addr_street", "addr_number", "addr_postcode"]
+        extra_kwargs = {"author": {"read_only": True}}
+
+
+        
